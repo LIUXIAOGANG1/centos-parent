@@ -13,20 +13,15 @@ import com.whalin.MemCached.SockIOPool;
 public class ApplicationConfig {
 	private Logger logger = LoggerFactory.getLogger(getClass());
 
-	@Value("${com.github.activemq.brokerURL}")
-	private String brokerURL;
+	@Value("${com.github.memcached.server}")
+	private String server;
 
-	@Value("${com.github.activemq.userName}")
-	private String userName;
-
-	@Value("${com.github.activemq.password}")
-	private String password;
 
 	@Bean
 	public MemCachedClient memCachedClient() {
 		MemCachedClient memCachedClient = new MemCachedClient();
 		try {
-			String[] servers = { "192.168.1.175:11211" };
+			String[] servers = {server};
 			// 创建一个连接池
 			SockIOPool pool = SockIOPool.getInstance();
 			// 设置缓存服务器

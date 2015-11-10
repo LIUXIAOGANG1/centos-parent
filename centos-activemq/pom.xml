@@ -11,6 +11,8 @@
 	<properties>
 		<version.org.springframework.core>4.0.6.RELEASE</version.org.springframework.core>
 
+		<version.org.apache.commons.cli>1.2</version.org.apache.commons.cli>
+
 		<!-- Log Config -->
 		<version.org.slf4j>1.7.2</version.org.slf4j>
 		<version.org.apache.logging.log4j>2.1</version.org.apache.logging.log4j>
@@ -43,6 +45,13 @@
 		</dependency>
 
 		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-test</artifactId>
+			<version>${version.org.springframework.core}</version>
+			<scope>test</scope>
+		</dependency>
+
+		<dependency>
 			<groupId>org.apache.activemq</groupId>
 			<artifactId>activemq-all</artifactId>
 			<version>5.12.0</version>
@@ -58,6 +67,18 @@
 			<groupId>org.apache.activemq</groupId>
 			<artifactId>activemq-web</artifactId>
 			<version>5.12.0</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-lang3</artifactId>
+			<version>3.4</version>
+		</dependency>
+
+		<dependency>
+			<groupId>commons-cli</groupId>
+			<artifactId>commons-cli</artifactId>
+			<version>${version.org.apache.commons.cli}</version>
 		</dependency>
 
 		<dependency>
@@ -87,7 +108,7 @@
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
-			<version>3.8.1</version>
+			<version>4.8.2</version>
 			<scope>test</scope>
 		</dependency>
 	</dependencies>

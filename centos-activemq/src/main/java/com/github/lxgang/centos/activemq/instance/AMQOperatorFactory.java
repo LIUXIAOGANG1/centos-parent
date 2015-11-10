@@ -8,14 +8,14 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 @Service
-public class AMQProducerFactory {
+public class AMQOperatorFactory {
 	private Logger logger = LoggerFactory.getLogger(getClass());
 
 	@Resource
 	private Session session;
 	
-	public AMQProducer getInstance(String queue) {
-		AMQProducer amqProducer = new AMQProducer(session, queue);
+	public AMQOperator getInstance(String queue) {
+		AMQOperator amqProducer = new AMQOperator(session, queue);
 		return amqProducer;
 	}
 }

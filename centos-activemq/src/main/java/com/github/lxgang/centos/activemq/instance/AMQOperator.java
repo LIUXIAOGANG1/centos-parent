@@ -3,6 +3,8 @@ package com.github.lxgang.centos.activemq.instance;
 import javax.jms.DeliveryMode;
 import javax.jms.Destination;
 import javax.jms.JMSException;
+import javax.jms.Message;
+import javax.jms.MessageConsumer;
 import javax.jms.MessageProducer;
 import javax.jms.ObjectMessage;
 import javax.jms.Session;
@@ -14,13 +16,13 @@ import org.slf4j.LoggerFactory;
 import com.github.lxgang.centos.activemq.bean.BeanParent;
 import com.github.lxgang.centos.activemq.service.Queue;
 
-public class AMQProducer implements Queue {
+public class AMQOperator implements Queue {
 	private Logger logger = LoggerFactory.getLogger(getClass());
 
 	private Session session;
 	private String queue;
 
-	AMQProducer(Session session, String queue) {
+	AMQOperator(Session session, String queue) {
 		this.session = session;
 		this.queue = queue;
 	}
@@ -42,5 +44,23 @@ public class AMQProducer implements Queue {
 			ObjectMessage objectMessage = session.createObjectMessage((BeanParent) obj);
 			producer.send(objectMessage);
 		}
+	}
+
+	@Override
+	public Message receive(long timeout) throws JMSException {
+		// 创建主题
+		Destination destination = session.createQueue(queue);
+		// 创建订阅
+		MessageConsumer consumer = session.createConsumer(destination);
+		
+		return consumer.receive(timeout);
+	}
+	
+	public Session getSession() {
+		return session;
+	}
+
+	public String getQueue() {
+		return queue;
 	}
 }
