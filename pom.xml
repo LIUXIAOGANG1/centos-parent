@@ -6,6 +6,9 @@
   <packaging>pom</packaging>
   <modules>
   	<module>centos-activemq</module>
+  	<module>centos-memcached</module>
+  	<module>centos-redis</module>
+  	<module>centos-zookeeper</module>
   </modules>
   
   	<properties>
