@@ -7,7 +7,7 @@
 	
 	<context:component-scan base-package="cn.gmw.skype" />
 	
-	<bean id="redisUtilFactory" class="cn.gmw.skype.business.redis.utils.RedisUtilFactory">
+	<bean id="redisUtilFactory" class="com.github.lxgang.centos.redis.RedisUtilFactory">
 		<property name="redisIp" value="${redisip}" />
 		<property name="redisPort" value="${redisport}" />
 		<property name="redisPassword" value="${redispassword}" />
