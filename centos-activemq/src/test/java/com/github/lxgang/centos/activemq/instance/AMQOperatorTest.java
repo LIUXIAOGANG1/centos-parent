@@ -24,7 +24,7 @@ public class AMQOperatorTest {
 	public void test() {
 		AMQOperator amqProducer = amqProducerFactory.getInstance("test");
 		try {
-			amqProducer.send2MQ("1234", false);
+//			amqProducer.send2MQ("1234", true);
 
 			Message message = amqProducer.receive(1000);
 			if (message != null) {
