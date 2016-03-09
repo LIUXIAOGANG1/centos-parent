@@ -4,7 +4,6 @@ import javax.annotation.Resource;
 import javax.jms.JMSException;
 import javax.jms.Message;
 
-import org.apache.activemq.command.ActiveMQObjectMessage;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.slf4j.Logger;
@@ -24,7 +23,7 @@ public class AMQOperatorTest {
 	public void test() {
 		AMQOperator amqProducer = amqProducerFactory.getInstance("test");
 		try {
-//			amqProducer.send2MQ("1234", true);
+			amqProducer.send2MQ("1234", true);
 
 			Message message = amqProducer.receive(1000);
 			if (message != null) {
